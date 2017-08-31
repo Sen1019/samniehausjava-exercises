@@ -10,10 +10,7 @@ public class AfternoonExercises {
 	 firstLast6([13, 6, 1, 2, 3]) → false
 	 */
 	public boolean firstLast6(int[] nums) {
-		if(nums[0]==6 || nums[nums.length - 1]==6){
-			return true;
-		}
-		return false;
+		return (nums[0]==6 || nums[nums.length - 1]==6);
 	}
 
 	/*
@@ -24,10 +21,7 @@ public class AfternoonExercises {
 	 sameFirstLast([1, 2, 1]) → true
 	 */
 	public boolean sameFirstLast(int[] nums) {
-		if (nums.length >= 1 && nums[0] == nums[nums.length - 1]){
-			return true;
-		}
-		return false;
+		return (nums.length >= 1 && nums[0] == nums[nums.length - 1]);
 	}
 
 	/*
@@ -46,10 +40,7 @@ public class AfternoonExercises {
 	 commonEnd([1, 2, 3], [1, 3]) → true
 	 */
 	public boolean commonEnd(int[] a, int[] b) {
-		if (a[0]==b[0] || a[a.length-1] == b[b.length-1]){
-		return true;
-		}
-		else return false;
+		return (a[0]==b[0] || a[a.length-1] == b[b.length-1]);
 	}
 
 	/*
@@ -78,6 +69,17 @@ public class AfternoonExercises {
 		int y = nums[1];
 		int z = nums[2];
 		return new int[] {y, z, x};
+		
+		
+		/* 
+		 int lastNum = nums[0];
+		 for(int i = 0; i < nums.length -1; i++){
+		 nums[i] = nums[i+1];
+		 }
+		 nums[nums.length-1] = lastNum;
+		 return nums;
+		 */
+		 
 	}
 
 	/*
@@ -88,10 +90,25 @@ public class AfternoonExercises {
 	 reverse3([7, 0, 0]) → [0, 0, 7]
 	 */
 	public int[] reverse3(int[] nums) {
+		int[] reverseNums = new int[nums.length];
+		for(int i = 0, j = nums.length-1; i < nums.length; i++, j--){
+			reverseNums[i]=nums[j];
+		}
+		return reverseNums;
+		
+		/*int[] reverseNums = new int[nums.length];
+		for(int[] i = {0,nums.length -1}; i[0] < nums.length; i[0]++, i[1]--){
+			reverseNums[i[0]] = nums[i[1]];
+		}
+		return reverseNums;
+		*/
+		
+		/*
 		int x = nums[0];
 		int y = nums[1];
 		int z = nums[2];
 		return new int[] {z, y, x};
+		*/
 	}
 	/*
 	 Given an array of ints length 3, figure out which is larger between the first and last elements 
@@ -120,15 +137,9 @@ public class AfternoonExercises {
 	 sum2([1, 1, 1, 1]) → 2
 	 */
 	public int sum2(int[] nums) {
-		if (nums.length == 0){
-		return 0;
-		}
-		else if(nums.length == 1){
-			return nums[0];
-		}
-		else{
-			return nums[0]+nums[1];
-		}
+	return (nums.length == 0) ? 0:
+	(nums.length == 1) ? nums[0]:
+	nums[0]+nums[1];
 	}
 
 	/*

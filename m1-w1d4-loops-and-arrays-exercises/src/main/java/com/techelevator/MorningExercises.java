@@ -147,10 +147,8 @@ public class MorningExercises {
         int sum = 0;
 
         //     Start;       Keep going while       Increment by;
-        for(int i = 0; i < arrayToLoopThrough.length; i = i + 1) {
-            if(i%2==0){
+        for(int i = 0; i < arrayToLoopThrough.length; i = i + 2) {
         	sum = sum + arrayToLoopThrough[i];
-            }
         }
         return (sum == 12);
     }
