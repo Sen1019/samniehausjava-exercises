@@ -1,5 +1,8 @@
 package com.techelevator;
 
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
 /*
  The Fibonacci numbers are the integers in the following sequence:  
 	0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...
@@ -17,7 +20,27 @@ Please enter the Fibonacci number: 25
 public class Fibonacci {
 
 	public static void main(String[] args) {
-
+		
+		Scanner input = new Scanner (System.in);
+		
+		System.out.print("Please enter the Fibonacci number: ");
+		int desiredNum = input.nextInt();
+		
+		DecimalFormat none = new DecimalFormat("#.#");
+		
+		if(desiredNum == 0 || desiredNum == 1){
+			System.out.print("0");
+			return;
+		}
+		System.out.print("0, 1, 1");
+		
+		for( double fibNum = 2;  fibNum < desiredNum; fibNum *= 1.61803398875){
+			fibNum = Math.round(fibNum);
+			System.out.print(", " + none.format(fibNum));
+		}
+		//Increments using the golden ratio and then rounds and prints it.  Initializes at 2, other cases already covered.
+		return;
 	}
 
 }
+//This one felt really, really good.
