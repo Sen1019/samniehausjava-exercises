@@ -394,7 +394,7 @@ public class Exercises {
 	 stringYak("yak123ya") → "123ya"
 	 */
 	public String stringYak(String str) {
-		String noYak = new String();
+		/*String noYak = new String();
 		for (int i = 0; i < str.length()-2; i++){
 			if (str.charAt(i) == 'y' && str.charAt(i+2) == 'k'){
 				i+=2;
@@ -404,12 +404,20 @@ public class Exercises {
 			}
 		}
 		if (str.length() >=3){
-			if(str.charAt(str.length()-3) == 'y' && str.charAt(str.length()-1) == 'k'){;}
-			else{
+			if (!(str.charAt(str.length()-3) == 'y' && str.charAt(str.length()-1) == 'k')){
 				noYak += str.charAt(str.length()-2);
 				noYak += str.charAt(str.length()-1);
 			}
-		}
+		}*/
+		
+		String noYak = str.replaceAll("y[\\w\\W]k", "");
+		
+		/*for (int i = 0; i < 256; i ++){
+			String yak = "y" + Character.toString((char) i) +"k";
+			}*/
+			
+		
+		
 		return noYak;
 	}
 	
