@@ -38,11 +38,17 @@ public class Exercises {
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
 	public String[] list2Array(List<String> stringList) {
+		/*
 		String[] list = new String[stringList.size()];
 		for (int i = 0; i < stringList.size(); i++){
 			list[i] = stringList.get(i);
 		}
 		return list;
+		*/
+		
+		String[] list = stringList.toArray(new String[stringList.size()]);
+		return list;
+	
 	}
 	
 	/*
@@ -54,8 +60,8 @@ public class Exercises {
 	 */
 	public List<String> no4LetterWords(String[] stringArray) {
 		
-		List<String> newList = new ArrayList<String>();
 		
+		List<String> newList = new ArrayList<String>();
 		for(int i = 0; i < stringArray.length; i++){
 			if(stringArray[i].length() != 4){
 				newList.add(stringArray[i]);
@@ -75,12 +81,17 @@ public class Exercises {
 	 */
 	public List<String> reverseList(List<String> stringList) {
 		
-		List<String> reverseStack = new ArrayList<String>();
+		/*
+		List<String> reverseList = new ArrayList<String>();
 		
 		for (String oneString : stringList){
-			reverseStack.add(0, oneString);
+			reverseList.add(0, oneString);
 		}
-		return reverseStack;
+		return reverseList;
+		*/
+		
+		Collections.reverse(stringList);
+		return stringList;
 	}
 
 	/*
@@ -107,6 +118,7 @@ public class Exercises {
 	 findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 64362
 	 */
 	public Integer findLargest(List<Integer> integerList) {
+		/*
 		Integer biggest = 0;
 		for (int big : integerList){
 			if(big > biggest){
@@ -114,6 +126,9 @@ public class Exercises {
 			}
 		}
 		return biggest;
+		*/
+		Collections.sort(integerList);
+		return integerList.get(integerList.size()-1);
 	}
 	
 	/*
@@ -142,6 +157,7 @@ public class Exercises {
 	 foundIntTwice( [9, 23, 44, 2, 88, 44], 44) -> true
 	 */
 	public boolean foundIntTwice(List<Integer> integerList, int intToFind) {
+		/*
 		int counter = 0;
 		for (int samesies : integerList){
 			if (intToFind == samesies){
@@ -152,6 +168,8 @@ public class Exercises {
 			}
 		}
 		return false;
+		*/
+		return(Collections.frequency(integerList, intToFind) >= 2);
 	}
 	
 	/*
@@ -196,10 +214,17 @@ public class Exercises {
 	 distinctValues( ["jingle", "bells", "jingle", "bells", "jingle", "all", "the", "way"] ) -> ["jingle", "bells", "all", "the", "way"]
 	 */
 	public List<String> distinctValues(List<String> stringList) {
+		/*
 		Set<String> noDupes = new HashSet<String>();
 		for(String oneString : stringList){
 			noDupes.add(oneString);
 		}
+		stringList.clear();
+		for(String oneString : noDupes){
+			stringList.add(oneString);
+		}
+		*/
+		Set<String> noDupes = new HashSet<String>(stringList);
 		stringList.clear();
 		for(String oneString : noDupes){
 			stringList.add(oneString);
@@ -238,6 +263,8 @@ public class Exercises {
 		}
 	
 			return listThree;
+			
+			//Look at using Queue and .peek() == null
 	}
 
 	/*
