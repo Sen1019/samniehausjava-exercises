@@ -33,7 +33,7 @@ public class Employee {
      * Employee first name
      * @return firstname
      */
-    public String FirstName() {
+    public String firstName() {
         return firstName;
     }
 
@@ -41,7 +41,7 @@ public class Employee {
      * Employee last name
      * @return lastName
      */
-    public String LastName() {
+    public String lastName() {
         return lastName;        
     }
 
@@ -49,7 +49,7 @@ public class Employee {
      * LastName, FirstName 
      * @return lastName, firstName
      */
-    public String FullName() {
+    public String fullName() {
         return lastName + ", " + firstName;
     }
 
@@ -81,9 +81,11 @@ public class Employee {
      * Provides the employee a percentage-based raise. Raise cannot be negative. 
      * @param percentage number-based percentage (where 1% = 1.0, 2% = 2.0)
      */
-    public void RaiseSalary(double percentage) {
-        double raiseAmount = annualSalary * percentage/100;
-        annualSalary += raiseAmount;
+    public void raiseSalary(double percentage) {
+        if(percentage > 0){
+        	double raiseAmount = annualSalary * percentage/100;
+        	annualSalary += raiseAmount;
+        }
     }
 
 }

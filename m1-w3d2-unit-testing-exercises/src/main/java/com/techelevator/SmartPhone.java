@@ -7,7 +7,6 @@ public class SmartPhone {
     private String operatingSystem;
     private boolean onCall;
     private int batteryCharge = 100;
-
     /**
      * Creates a new smart phone 
      * @param phoneNumber
@@ -74,11 +73,13 @@ public class SmartPhone {
      * @return True if the call could be placed, false otherwise
      */
     public boolean Call(String phoneNumberToCall, int numberOfMinutesToTalk)
-    {                        
-        onCall = true;
-        batteryCharge -= numberOfMinutesToTalk;
-
-        return true;
+    {    
+    	if(numberOfMinutesToTalk <= batteryCharge && phoneNumberToCall.length() == 10){
+	        onCall = true;
+	        batteryCharge -= numberOfMinutesToTalk;
+	        return true;
+    	}
+    	return false;
     }
 
     /**
@@ -94,7 +95,7 @@ public class SmartPhone {
      */
     public void HangUp()
     {
-        onCall = !onCall;
+        onCall = false;
     }
 
     /**
@@ -102,7 +103,7 @@ public class SmartPhone {
      */
     public void RechargeBattery()
     {
-        batteryCharge = 95;
+        batteryCharge = 100;
     }
 
 }

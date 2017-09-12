@@ -13,8 +13,7 @@ public class Elevator {
      * @param shaftNumber Shaft for the elevator
      * @param totalNumberOfFloors Number of floors in the elevator
      */
-    public Elevator(int shaftNumber, int totalNumberOfFloors) {
-        this.shaftNumber = shaftNumber;
+    public Elevator(int totalNumberOfFloors) {
         this.numberOfLevels = totalNumberOfFloors;
         this.currentLevel = 1;
     }
@@ -77,7 +76,7 @@ public class Elevator {
     {
         if (!moving)
         {
-            doorOpen = !doorOpen;
+            doorOpen = false;
         }
     }
 
@@ -88,10 +87,9 @@ public class Elevator {
      */
     public boolean GoUp(int desiredFloor)
     {
-        currentLevel = desiredFloor;
-
-        if (desiredFloor > currentLevel && desiredFloor <= numberOfLevels && doorOpen)
+        if (desiredFloor > currentLevel && desiredFloor <= numberOfLevels && !doorOpen)
         {
+            currentLevel = desiredFloor;
             return true;
         }
         else

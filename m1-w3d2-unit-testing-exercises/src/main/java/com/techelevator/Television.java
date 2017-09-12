@@ -33,7 +33,9 @@ public class Television {
      */
     public void TurnOn()
     {
-        isOn = true;                        
+        isOn = true;
+        selectedChannel = 3;
+        currentVolume = 2;
     }
 
     /**
@@ -50,7 +52,7 @@ public class Television {
      */
     public void ChangeChannel(int newChannel)
     {
-        if (isOn && newChannel > 3 && newChannel < 18)
+        if (isOn && newChannel >= 3 && newChannel <= 18)
         {
             selectedChannel = newChannel;
         }
@@ -61,7 +63,9 @@ public class Television {
      */
     public void RaiseVolume()
     {
-        currentVolume++;
+    	if(currentVolume < 10){
+    		currentVolume++;
+    	}
     }
 
     /**
@@ -69,7 +73,9 @@ public class Television {
      */
     public void LowerVolume()
     {
-        currentVolume--;
+    	if(currentVolume > 0){
+    		currentVolume--;
+    	}
     }
 
 }
