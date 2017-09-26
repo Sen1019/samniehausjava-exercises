@@ -1,7 +1,9 @@
 package com.techelevator;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class Exercises {
 
@@ -12,6 +14,14 @@ public class Exercises {
     arrayDeduplication([1, 1, 1]) → [1]
     */
     public int[] arrayDeduplication(int[] nums) {
+    	int[] noDupes = {};
+    	for(int num : nums){
+    		if (!IntStream.of(noDupes).anyMatch(x -> x == num)){
+    			System.out.println(num);
+    		}
+    	}
+    	
+    	
         return null;
     }
     
