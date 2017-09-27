@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.IntStream;
 
+
 public class Exercises {
 
     /*
@@ -14,15 +15,17 @@ public class Exercises {
     arrayDeduplication([1, 1, 1]) → [1]
     */
     public int[] arrayDeduplication(int[] nums) {
-    	int[] noDupes = {};
+    	List<Integer> noDupesList = new ArrayList<>();
     	for(int num : nums){
-    		if (!IntStream.of(noDupes).anyMatch(x -> x == num)){
-    			System.out.println(num);
+    		if(!noDupesList.contains(num)){
+    			noDupesList.add(num);
     		}
     	}
-    	
-    	
-        return null;
+    	int[] noDupes = new int[noDupesList.size()];
+    	for(int i = 0; i < noDupes.length; i++){
+    		noDupes[i] = noDupesList.get(i);
+    	}
+        return noDupes;
     }
     
     /*
@@ -34,7 +37,19 @@ public class Exercises {
         arrayIntersection([], []) → []
     */
     public int[] arrayIntersection(int[] a, int[] b) {
-        return null;
+        List<Integer> cList = new ArrayList<>();
+        for(int i : a){
+        	for(int j : b){
+        		if(i == j && !cList.contains(i)){
+        			cList.add(i);
+        		}
+        	}
+        }
+        int[] c = new int[cList.size()];
+    	for(int i = 0; i < c.length; i++){
+    		c[i] = cList.get(i);
+    	}
+        return c;
     }
     
     /*
@@ -43,7 +58,20 @@ public class Exercises {
     arraySort([8, 13, 9, 12]) → [8, 9, 12, 13]        
     */
     public int[] arraySort(int[] nums) {
-        return null;
+    	int counter = 0;
+    	int trader;
+    	while(counter < nums.length){
+    		for(int i = 0; i < nums.length - 1; i++){
+    			if(nums[i] > nums[i+1]){
+    				trader = nums[i];
+    				nums[i] = nums[i+1];
+    				nums[i+1] = trader;
+    			}else{
+    				counter++;
+    			}
+    		}
+    	}
+        return nums;
     }
 
     /*
@@ -54,7 +82,7 @@ public class Exercises {
     blackjack(19, 22) → 19
     */
     public int blackjack(int a, int b) {
-        return 0;
+    	return((a >= b || b > 21) && a <= 21) ? a : (b <= 21) ? b : 0;
     }
     
     /*
@@ -66,9 +94,11 @@ public class Exercises {
     closeFar(4, 1, 3) → true
     */
     public boolean closeFar(int a, int b, int c) {
-        return false;
+    	return ((Math.abs(a - b) <= 1 && (Math.abs(a - c) > 1 && Math.abs(b- c) > 1)) 
+    			|| (Math.abs(b - c) <= 1 && (Math.abs(a - c) > 1 && Math.abs(a - b) > 1))
+    			|| (Math.abs(a - c) <= 1 && (Math.abs(b - c) > 1 && Math.abs(b -a) > 1)));  
+    	
     }
-
     /*
     CHALLENGE: Say that a "clump" in an array is a series of 2 or more adjacent elements of the same value.
     Return the number of clumps in the given array.
@@ -77,6 +107,7 @@ public class Exercises {
     countClumps([1, 1, 1, 1, 1]) → 1
     */
     public int countClumps(int[] nums) {
+    	boolean 
         return 0;
     }
 
