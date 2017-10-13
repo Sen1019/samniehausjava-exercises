@@ -107,8 +107,24 @@ public class Exercises {
     countClumps([1, 1, 1, 1, 1]) → 1
     */
     public int countClumps(int[] nums) {
-    	boolean 
-        return 0;
+    	
+    	if(nums.length == 0){
+    		return 0;
+    	}
+    	
+    	boolean isNew = true;
+    	int counter = 0;
+    	
+    	for (int i = 1; i < nums.length; i++){
+    		if(nums[i-1] == nums[i] && isNew == true){
+    			counter++;
+    			isNew = false;
+    			System.out.println(counter);
+    		}else if(nums[i-1] != nums[i]){
+    			isNew = true;
+    		}
+    	}
+    	return counter;
     }
 
     /*
@@ -121,9 +137,12 @@ public class Exercises {
     findPermutations("ABC") → {"ABC","ACB","BAC","BCA","CAB","CBA"}
     */
     public List<String> findPermutations(String str)
-    {            
-        return null;
-    }
+    {   
+ 
+	    return null;
+    	
+    }    
+
 
     /*
     * Given an array of ints, return true if it contains a 2, 7, 1 pattern -- a value, followed by 

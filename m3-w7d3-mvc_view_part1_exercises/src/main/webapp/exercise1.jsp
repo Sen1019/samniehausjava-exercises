@@ -37,6 +37,23 @@
 				
 				see exercise1-fizzbuzz.png for example output
 			 --%>
+			 <c:forEach begin = "1" end = "100" var = "count">
+			 	<c:choose>
+			 		<c:when test = "${count % 15 == 0}">
+			 			<li class = "fizzbuzz"><c:out value = "FizzBuzz!"/></li>
+			 		</c:when>
+			 		<c:when test = "${count % 3 == 0}">
+			 			<li class = "fizz"><c:out value = "Fizz!"/></li>
+			 		</c:when>
+			 		<c:when test = "${count % 5 == 0}">
+			 			<li class = "buzz"><c:out value = "Buzz!"/></li>
+			 		</c:when>
+			 		<c:otherwise>
+			 			<li class = ""><c:out value = "${count}"/></li>
+			 		</c:otherwise>
+			 	</c:choose>
+
+			 </c:forEach>
 		</ul>
 	</body>
 </html>
