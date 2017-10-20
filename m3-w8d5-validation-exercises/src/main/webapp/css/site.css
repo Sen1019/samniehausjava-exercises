@@ -16,5 +16,18 @@ textarea {
     max-width: 280px;
 }
 
+.error{
+	color: red;
+}
 
+/* Lol, this is so bad, I am sorry. */
 
+.date-error{
+	font-size: 0px;
+}
+
+.date-error::after{
+	content: 'Please enter a valid date.';
+	color: red;
+	font-size: 15px;
+}
