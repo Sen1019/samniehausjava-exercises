@@ -36,7 +36,8 @@ function turnOfTheCenturyPresidents() {
 
 //Locate each president serving at the end of the century and add the 'endOfCentury' class.
 function endOfTheCenturyPresidents() {
-	$("div").prev("h2").addClass("endOfCentury");    
+	$("h2").prev("div").addClass("endOfCentury");    
+	$("div#presidents > div").last("div").addClass("endOfCentury");
 }
 
 //Locate all presidents serving in the 1900s who appear on currency and add the 'appearOnCurrency' class.
