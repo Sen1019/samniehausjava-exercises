@@ -12,10 +12,12 @@ $(document).ready(function () {
 	
 	$("input[name=ShippingType]").on('click', function(){
 		
-		var tax = parseFloat($(this).attr("data-cost"));
+		var shipping = parseFloat($(this).attr("data-cost"));
 		var subtotal = Number($('#subtotal > .price').text().replace(/[^0-9\.-]+/g,""));
-		$("#shipping > .price").text('$' + tax);
-		$("#grandtotal > .price").text('$' + (tax + subtotal));
+		var tax = Number($("#tax > .price").text().replace(/[^0-9\.-]+/g,""));
+		var total = (shipping + tax + subtotal).toFixed(2);
+		$("#shipping > .price").text('$' + shipping);
+		$("#grandtotal > .price").text('$' + total);
 		
 	})
 });
